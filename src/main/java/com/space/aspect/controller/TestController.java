@@ -18,4 +18,10 @@ public class TestController {
     public String test(@RequestParam("name") String name){
         return name;
     }
+
+    @SysLog("测试Hello")
+    @GetMapping("/hello")
+    public String Hello(){
+        return "Hello";
+    }
 }
