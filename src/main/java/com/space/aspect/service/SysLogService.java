@@ -1,8 +1,10 @@
 package com.space.aspect.service;
 
 import com.space.aspect.bo.SysLogBO;
+import com.space.aspect.mapper.SysLogMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,10 +15,13 @@ import org.springframework.stereotype.Service;
 //@Slf4j
 @Service
 public class SysLogService {
+
+    @Autowired
+    private SysLogMapper sysLogMapper;
     private Logger log;
 
     public boolean save(SysLogBO sysLogBO){
-        // 这里就不做具体实现了
+        sysLogMapper.save(sysLogBO);
         log.info(sysLogBO.getParams());
         return true;
     }
